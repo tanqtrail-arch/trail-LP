@@ -117,8 +117,9 @@
   .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
   .pain-card{background:linear-gradient(145deg,#FFF8F0,#FFF5F5);border-radius:var(--radius);padding:32px 28px;border:1.5px solid rgba(255,107,107,.12);transition:transform .3s;}
   .pain-card:hover{transform:translateY(-4px);}
-  .pain-card-icon{font-size:2.2rem;margin-bottom:16px;}
-  .pain-card-text{font-size:1rem;font-weight:700;line-height:1.7;}
+  .pain-card-icon{font-size:1.5rem;margin-bottom:12px;}
+  .pain-card-text{font-size:.95rem;font-weight:700;line-height:1.7;}
+  .pain-card-sub{font-size:.82rem;color:var(--text-sub);line-height:1.7;margin-top:8px;font-weight:400;}
   .pain-card-text em{font-style:normal;color:var(--coral);}
 
   /* ===== SOLUTION ===== */
@@ -409,7 +410,7 @@
   .diag-pip.done{background:var(--violet);}
   .diag-pip.current{background:linear-gradient(90deg,var(--violet),rgba(132,94,247,.3));}
   .diag-question{font-size:1.1rem;font-weight:700;margin-bottom:24px;line-height:1.6;min-height:60px;}
-  .diag-options{display:flex;flex-direction:column;gap:12px;}
+  .diag-options{display:flex;flex-direction:column;gap:12px;transition:opacity .2s ease;}
   .diag-opt{padding:16px 20px;border-radius:14px;border:2px solid rgba(0,0,0,.06);background:var(--bg-soft);font-family:inherit;font-size:.95rem;font-weight:600;cursor:pointer;text-align:left;transition:all .25s;color:var(--text-main);}
   .diag-opt:hover{border-color:var(--violet);background:rgba(132,94,247,.04);transform:translateX(4px);}
   .diag-opt.selected{border-color:var(--violet);background:rgba(132,94,247,.08);}
@@ -507,6 +508,9 @@
   @media(max-width:900px){
     .hero-inner{grid-template-columns:1fr;gap:40px;}
     .hero-visual{display:none;}
+    .hero-text{max-width:100%;}
+    .hero-title{font-size:clamp(1.6rem,6vw,2.4rem);line-height:1.4;word-break:auto-phrase;}
+    .hero-desc{font-size:.95rem;line-height:1.8;}
     .pain-grid{grid-template-columns:1fr;}
     .feature-item{grid-template-columns:64px 1fr;padding:24px;}
     .feature-num{width:64px;height:64px;font-size:1.8rem;border-radius:18px;}
@@ -531,6 +535,10 @@
     .flow-steps{grid-template-columns:1fr;}
     .curriculum-grid{grid-template-columns:1fr;}
     .floating-cta-inner{flex-direction:column;gap:8px;}
+    .section-heading br,.hero-title br,.solution-heading br,.rt-heading br,.manifesto-heading br{display:none;}
+    .section-heading{font-size:clamp(1.3rem,5vw,1.8rem);}
+    .section-sub{font-size:.9rem;}
+    .section-sub br{display:none;}
   }
 </style>
 </head>
@@ -542,8 +550,8 @@
   <div class="container hero-inner">
     <div class="hero-text">
       <div class="hero-badge">🚀 無料体験授業 受付中！</div>
-      <h1 class="hero-title">「<span class="highlight">面白い！</span>」から始まる<br>AI時代を生き抜く<br><span class="highlight">考える力</span></h1>
-      <p class="hero-desc">探究教室TRAILは、子どもの「なぜ？」を大切にする<br>探究型学習の教室です。最先端のAIツールを活用し、<br>自分で考え、発信し、未来を切り拓く力を育てます。</p>
+      <h1 class="hero-title">「<span class="highlight">面白い！</span>」から始まる AI時代を生き抜く<span class="highlight">考える力</span></h1>
+      <p class="hero-desc">探究教室TRAILは、子どもの「なぜ？」を大切にする探究型学習の教室です。最先端のAIツールを活用し、自分で考え、発信し、未来を切り拓く力を育てます。</p>
       <div class="hero-actions">
         <a href="https://tanqtrail-arch.github.io/contact-form/#trial" target="_blank" class="cta-btn">無料体験に申し込む</a>
         <a href="https://lin.ee/7S36o6h" target="_blank" class="cta-btn-line"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.83 2 10.5c0 2.95 1.93 5.53 4.8 7.05L6 22l3.84-2.31c.7.12 1.42.19 2.16.19 5.52 0 10-3.83 10-8.5S17.52 2 12 2z" fill="white"/></svg>LINE登録する</a>
@@ -580,9 +588,9 @@
       <h2 class="section-heading">AIが当たり前の時代、<br>今の学びで大丈夫？</h2>
     </div>
     <div class="pain-grid">
-      <div class="pain-card reveal"><div class="pain-card-icon">😟</div><div class="pain-card-text">AIに仕事を奪われる時代、<em>子どもに何を学ばせれば？</em></div></div>
-      <div class="pain-card reveal"><div class="pain-card-icon">📱</div><div class="pain-card-text">答えをすぐ検索する癖がついて、<em>自分で考えなくなった</em></div></div>
-      <div class="pain-card reveal"><div class="pain-card-icon">😐</div><div class="pain-card-text">塾で成績は上がっても<em>「勉強が楽しい」と思えていない</em></div></div>
+      <div class="pain-card reveal"><div class="pain-card-icon">😟</div><div class="pain-card-text">AIに仕事を奪われる時代、<em>子どもに何を学ばせれば？</em></div><div class="pain-card-sub">知識の暗記だけでは通用しない時代。「考える力」「問いを立てる力」がこれからの子どもには不可欠です。</div></div>
+      <div class="pain-card reveal"><div class="pain-card-icon">📱</div><div class="pain-card-text">答えをすぐ検索する癖がついて、<em>自分で考えなくなった</em></div><div class="pain-card-sub">AIやネットで即座に答えが出る環境では、「自分の頭で考える機会」を意識的に作る必要があります。</div></div>
+      <div class="pain-card reveal"><div class="pain-card-icon">😐</div><div class="pain-card-text">塾で成績は上がっても<em>「勉強が楽しい」と思えていない</em></div><div class="pain-card-sub">テストの点は取れても、学ぶこと自体にワクワクしていない。好奇心が動かない学びは長続きしません。</div></div>
     </div>
   </div>
 </section>
@@ -829,7 +837,7 @@
           <div class="price-course">🌱 探究キッズ</div>
           <div class="price-age">年長〜小1</div>
           <div class="price-amount"><span class="price-yen">16,500</span><span class="price-unit">円/月（税込）</span></div>
-          <div class="price-detail">60分 × 月4回 ｜ 3〜6名</div>
+          <div class="price-detail">70分 × 月4回 ｜ 3〜6名</div>
           <div class="price-schedule"><span class="price-schedule-tag">📅 月曜 16:00〜17:00</span></div>
           <ul class="price-features">
             <li>遊びと探究を融合した導入プログラム</li>
@@ -840,7 +848,7 @@
         <div class="price-card reveal">
           <div class="price-course">⭐ 探究スターター</div>
           <div class="price-age">小2〜小3</div>
-          <div class="price-amount"><span class="price-yen">25,300</span><span class="price-unit">円/月（税込）</span></div>
+          <div class="price-amount"><span class="price-yen">22,000</span><span class="price-unit">円/月（税込）</span></div>
           <div class="price-detail">100分 × 月4回 ｜ 3〜6名</div>
           <div class="price-schedule"><span class="price-schedule-tag">📅 月曜 18:00〜19:40</span></div>
           <ul class="price-features">
@@ -852,7 +860,7 @@
         <div class="price-card popular reveal">
           <div class="price-course">🔥 探究ベーシック</div>
           <div class="price-age">小4〜小5</div>
-          <div class="price-amount"><span class="price-yen">25,300</span><span class="price-unit">円/月（税込）</span></div>
+          <div class="price-amount"><span class="price-yen">23,650</span><span class="price-unit">円/月（税込）</span></div>
           <div class="price-detail">100分 × 月4回 ｜ 3〜6名</div>
           <div class="price-schedule"><span class="price-schedule-tag">📅 土曜 10:00〜11:40</span><span class="price-schedule-tag">📅 土曜 14:00〜15:40</span></div>
           <ul class="price-features">
@@ -865,7 +873,7 @@
           <div style="position:absolute;top:-12px;right:20px;background:linear-gradient(135deg,var(--sky),var(--violet));color:var(--white);font-size:.7rem;font-weight:700;padding:4px 14px;border-radius:20px;">🔥 リアルタイム探究</div>
           <div class="price-course">🚀 探究アドバンス</div>
           <div class="price-age">小6〜中1</div>
-          <div class="price-amount"><span class="price-yen">25,300</span><span class="price-unit">円/月（税込）</span></div>
+          <div class="price-amount"><span class="price-yen">24,200</span><span class="price-unit">円/月（税込）</span></div>
           <div class="price-detail">100分 × 月4回 ｜ 3〜6名</div>
           <div class="price-schedule"><span class="price-schedule-tag">📅 火曜 17:00〜18:40</span></div>
           <ul class="price-features">
@@ -920,7 +928,7 @@
       <div class="pricing-notes-grid">
         <div class="pricing-note-item">入学金：19,800円（税込）※ 1月以降入塾の方は初年度更新費免除</div>
         <div class="pricing-note-item">新年度更新費：19,800円（税込・毎年4月）</div>
-        <div class="pricing-note-item">グループ指導は振替なし。欠席時は翌月月謝より4,000円割引（月2回まで、事前にLINE連絡）</div>
+        <div class="pricing-note-item">グループ指導は振替なし。欠席時は翌月月謝より3,000円割引（月2回まで、事前にLINE連絡）</div>
         <div class="pricing-note-item">兄弟割引・自宅受講割引あり</div>
         <div class="pricing-note-item">お支払い：スクパスペイ（口座振替・毎月27日）</div>
         <div class="pricing-note-item">休塾制度あり（月額5,500円で席確保・最長3ヶ月）</div>
@@ -992,38 +1000,38 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">A DAY AT TRAIL</div>
-      <h2 class="section-heading">探究ベーシック（130分）<br>ある授業の1日</h2>
-      <p class="section-sub">「面白い！」が生まれる130分の流れをご紹介。スクロールして体感してください。</p>
+      <h2 class="section-heading">探究ベーシック（100分）<br>ある授業の1日</h2>
+      <p class="section-sub">「面白い！」が生まれる100分の流れをご紹介。スクロールして体感してください。</p>
     </div>
     <div class="tl-track" id="tlTrack">
       <div class="tl-line"></div>
       <div class="tl-item" data-time="0:00">
         <div class="tl-dot"></div>
-        <div class="tl-time" style="color:var(--sky);">0:00 - 0:15</div>
+        <div class="tl-time" style="color:var(--sky);">0:00 - 0:10</div>
         <div class="tl-title">🧊 アイスブレイク＆前回の振り返り</div>
         <div class="tl-desc">NotebookLMの音声要約で前回を振り返り。今日のテーマへの興味を引き出す導入クイズで教室の空気を温めます。</div>
       </div>
       <div class="tl-item" data-time="0:15">
         <div class="tl-dot"></div>
-        <div class="tl-time" style="color:var(--sun);">0:15 - 0:40</div>
+        <div class="tl-time" style="color:var(--sun);">0:10 - 0:30</div>
         <div class="tl-title">🔥 テーマ提示＆問い立て</div>
         <div class="tl-desc">今日のテーマを提示し、「なぜ？」「本当に？」という問いをみんなで出し合います。AIに聞いていいこと・自分で考えることの線引きも確認。</div>
       </div>
       <div class="tl-item" data-time="0:40">
         <div class="tl-dot"></div>
-        <div class="tl-time" style="color:var(--leaf);">0:40 - 1:20</div>
+        <div class="tl-time" style="color:var(--leaf);">0:30 - 1:05</div>
         <div class="tl-title">🔬 探究タイム（リサーチ＆実験）</div>
         <div class="tl-desc">本・資料・AIツールを使って調査。仮説を立て、検証し、新しい疑問を見つける。講師は答えを教えず、問いかけで思考を深めます。</div>
       </div>
       <div class="tl-item" data-time="1:20">
         <div class="tl-dot"></div>
-        <div class="tl-time" style="color:var(--violet);">1:20 - 1:55</div>
+        <div class="tl-time" style="color:var(--violet);">1:05 - 1:30</div>
         <div class="tl-title">🎤 まとめ＆ミニ発表</div>
         <div class="tl-desc">調べたことを自分の言葉でまとめ、クラスメイトの前で発表。質問し合い、多角的な視点を学びます。表現力と発信力を実践で鍛えます。</div>
       </div>
       <div class="tl-item" data-time="2:00">
         <div class="tl-dot"></div>
-        <div class="tl-time" style="color:var(--coral);">1:55 - 2:10</div>
+        <div class="tl-time" style="color:var(--coral);">1:30 - 1:40</div>
         <div class="tl-title">📝 振り返り＆次回予告</div>
         <div class="tl-desc">今日の学びを振り返りシートに記入。「次はここを深掘りしたい！」を見つけて終了。授業内容はNotebookLMで保護者にも共有されます。</div>
       </div>
@@ -1062,6 +1070,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.83 2 10.5c0 2.95 1.93 5.53 4.8 7.05L6 22l3.84-2.31c.7.12 1.42.19 2.16.19 5.52 0 10-3.83 10-8.5S17.52 2 12 2z" fill="white"/></svg>
           LINEで診断結果の詳細を受け取る
         </a>
+        <div style="font-size:.75rem;color:var(--text-sub);margin-top:6px;">※ LINEのトーク画面で「診断」と送信すると詳細が届きます</div>
         <br>
         <button class="diag-restart" onclick="startDiag()">もう一度やる</button>
       </div>
@@ -1078,10 +1087,10 @@
       <h2 class="section-heading">保護者さまの声</h2>
     </div>
     <div class="testimonial-grid">
-      <div class="testimonial-card reveal"><div class="testimonial-quote">塾では「答え」ばかり追っていた息子が、TRAILに通い始めてから「なんで？」「もっと調べたい！」と自分から言うようになりました。学ぶことへの姿勢が根本から変わったと感じています。</div><div class="testimonial-author">小5 男子の保護者</div><div class="testimonial-role">通塾歴8ヶ月</div></div>
-      <div class="testimonial-card reveal"><div class="testimonial-quote">AIを使わせるのが不安でしたが、「道具として正しく使う」という方針に納得。娘はAIの回答を鵜呑みにせず「本当かな？」と疑う目を持つようになりました。これこそ必要な力だと思います。</div><div class="testimonial-author">小4 女子の保護者</div><div class="testimonial-role">通塾歴6ヶ月</div></div>
-      <div class="testimonial-card reveal"><div class="testimonial-quote">NotebookLMで授業の振り返りが聴けるのが親としてありがたい。子どもが今日何を学んだかがわかるし、夕飯時に「今日のテーマどう思った？」と会話が広がります。</div><div class="testimonial-author">小3 男子の保護者</div><div class="testimonial-role">通塾歴4ヶ月</div></div>
-      <div class="testimonial-card reveal"><div class="testimonial-quote">探究学習ゲームが息子のお気に入り。元素のゲームをきっかけに理科への興味が爆発しました。LINEで届く教育ニュースも毎回楽しみに読んでいます。最先端を走っている教室だと実感します。</div><div class="testimonial-author">小6 男子の保護者</div><div class="testimonial-role">通塾歴1年</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-quote">塾では「答え」ばかり追っていた息子が、TRAILに通い始めてから「なんで？」「もっと調べたい！」と自分から言うようになりました。学ぶことへの姿勢が根本から変わったと感じています。</div><div class="testimonial-author">小5 男子の保護者</div><div class="testimonial-role">通塾歴1年半</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-quote">AIを使わせるのが不安でしたが、「道具として正しく使う」という方針に納得。娘はAIの回答を鵜呑みにせず「本当かな？」と疑う目を持つようになりました。これこそ必要な力だと思います。</div><div class="testimonial-author">小4 女子の保護者</div><div class="testimonial-role">通塾歴1年</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-quote">NotebookLMで授業の振り返りが聴けるのが親としてありがたい。子どもが今日何を学んだかがわかるし、夕飯時に「今日のテーマどう思った？」と会話が広がります。</div><div class="testimonial-author">小3 男子の保護者</div><div class="testimonial-role">通塾歴8ヶ月</div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-quote">探究学習ゲームが息子のお気に入り。元素のゲームをきっかけに理科への興味が爆発しました。LINEで届く教育ニュースも毎回楽しみに読んでいます。最先端を走っている教室だと実感します。</div><div class="testimonial-author">小6 男子の保護者</div><div class="testimonial-role">通塾歴3年</div></div>
     </div>
   </div>
 </section>
@@ -1102,7 +1111,7 @@
 
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-badge">Q</span><span>グループと個別、どちらがおすすめですか？</span><span class="faq-toggle">+</span></button><div class="faq-a">グループ指導（3〜6名）は対話や協働を重視し、多様な視点を学べます。個別指導（1対1）はお子さまのペースに完全に合わせた指導で、苦手克服や発展学習に最適です。体験授業でご相談いただければ、最適なコースをご提案します。</div></div>
 
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-badge">Q</span><span>お休みした場合はどうなりますか？</span><span class="faq-toggle">+</span></button><div class="faq-a">グループ指導は振替制度はありませんが、事前に公式LINEでご連絡いただければ、翌月月謝より4,000円を割引いたします（月2回まで）。個別指導は前日までのご連絡で何回でも振替可能です。</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-badge">Q</span><span>お休みした場合はどうなりますか？</span><span class="faq-toggle">+</span></button><div class="faq-a">グループ指導は振替制度はありませんが、事前に公式LINEでご連絡いただければ、翌月月謝より3,000円を割引いたします（月2回まで）。個別指導は前日までのご連絡で何回でも振替可能です。</div></div>
 
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-badge">Q</span><span>授業はどこで行いますか？</span><span class="faq-toggle">+</span></button><div class="faq-a">田園調布エリアのレンタルスペース（赤キ屋、コンチネンタルファーイースト迎賓館）を中心に、ご自宅やオンラインでの受講も可能です。ご自宅・オンラインの場合は割引が適用される場合があります。</div></div>
 
@@ -1371,14 +1380,16 @@
     document.getElementById('diagOpts').innerHTML=optsHtml;
   }
   function selectDiagOpt(type,btn){
-    document.querySelectorAll('.diag-opt').forEach(b=>b.classList.remove('selected'));
+    document.querySelectorAll('.diag-opt').forEach(b=>{b.classList.remove('selected');b.style.pointerEvents='none';});
     btn.classList.add('selected');
     diagScores[type]++;
+    const optsEl=document.getElementById('diagOpts');
+    optsEl.style.opacity='0';
     setTimeout(()=>{
       diagStep++;
-      if(diagStep<diagQuestions.length){renderDiagQ();}
+      if(diagStep<diagQuestions.length){renderDiagQ();optsEl.style.opacity='1';}
       else{showDiagResult();}
-    },400);
+    },350);
   }
   function showDiagResult(){
     document.getElementById('diagContent').style.display='none';
@@ -1391,10 +1402,7 @@
     document.getElementById('diagResult').style.display='block';
     // Update LINE share link to include detailed result
     const lineShareBtn=document.getElementById('diagLineShare');
-    if(lineShareBtn){
-      const msg=encodeURIComponent(`【探究タイプ診断結果】\n${r.icon} ${r.type}\n\n${r.desc}\n\n${r.course}\n\n${r.detail}\n\n▼ 無料体験授業はこちら\nhttps://lin.ee/7S36o6h`);
-      lineShareBtn.href=`https://line.me/R/share?text=${msg}`;
-    }
+    // Keep as friend-add link (user sends "診断" in chat to get details)
     document.getElementById('diagProgress').innerHTML=[...Array(5)].map(()=>'<div class="diag-pip done"></div>').join('');
   }
   startDiag();
@@ -1406,10 +1414,10 @@
 【対象】年長〜中3。
 【クラス】グループ指導（3〜6名）と個別指導（1対1）。8名以上はクラス分割。
 【場所】レンタルスペース（赤キ屋、コンチネンタルファーイースト迎賓館）、生徒宅（割引あり）、オンライン（割引あり）、カフェ等。
-【料金・グループ】探究キッズ(年長〜小1)60分×月4回16,500円／探究スターター(小2〜小3)100分×月4回25,300円／探究ベーシック(小4〜小5)100分×月4回25,300円／探究アドバンス(小6〜中1)100分×月4回25,300円・リアルタイム自由探究／探究リミットレス(中2〜中3)100分×月4回25,300円・ゲーム開発（企画〜制作）。すべて税込。探究キッズ以外は全コース統一料金。
+【料金・グループ】探究キッズ(年長〜小1)70分×月4回16,500円／探究スターター(小2〜小3)100分×月4回22,000円／探究ベーシック(小4〜小5)100分×月4回23,650円／探究アドバンス(小6〜中1)100分×月4回24,200円・リアルタイム自由探究／探究リミットレス(中2〜中3)100分×月4回25,300円・ゲーム開発（企画〜制作）。すべて税込。
 【料金・個別】個別100分コース100分×月4回39,600円＋ルーム料1回1,100円（税込）。振替は前日まで何回でもOK。
 【入学金】19,800円（税込・返金不可）。新年度更新費19,800円（毎年4月）。1月以降入塾は初年度更新費免除。
-【欠席・グループ】振替なし。事前にLINE連絡で翌月月謝より4,000円割引（月2回まで）。無断欠席は対象外。
+【欠席・グループ】振替なし。事前にLINE連絡で翌月月謝より3,000円割引（月2回まで）。無断欠席は対象外。
 【欠席・個別】前日まで連絡で何回でも振替可能。
 【割引】兄弟割引、自宅・オンライン受講割引あり。
 【支払い】スクパスペイ（口座振替）毎月27日。兄弟は1名登録で合算。
@@ -1534,5 +1542,4 @@
 </script>
 
 </body>
-</html>
 </html>
